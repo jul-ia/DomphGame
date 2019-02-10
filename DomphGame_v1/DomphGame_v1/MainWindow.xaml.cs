@@ -23,6 +23,8 @@ namespace DomphGame_v1
         public MainWindow()
         {
             InitializeComponent();
+
+
         }
     }
 }
