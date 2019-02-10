@@ -35,6 +35,7 @@ namespace DomphGame_v1.Classes
         public void SmthTest()
         {
            // if()
+
         }
     }
 }
