@@ -68,6 +68,7 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="Classes\GameController.cs" />
+    <Compile Include="Classes\MiniGame.cs" />
     <Compile Include="Classes\Screensaver.cs" />
     <Compile Include="MainWindow.xaml.cs">
       <DependentUpon>MainWindow.xaml</DependentUpon>
