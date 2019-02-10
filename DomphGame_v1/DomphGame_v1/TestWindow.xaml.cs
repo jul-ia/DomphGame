@@ -23,8 +23,7 @@ namespace DomphGame_v1
         public TestWindow()
         {
             InitializeComponent();
-            ss = new Classes.Screensaver();
-
+            ss = new Classes.Screensaver(1);
             imageForMW.Source = ss.GetImage(101);
         }
     }
