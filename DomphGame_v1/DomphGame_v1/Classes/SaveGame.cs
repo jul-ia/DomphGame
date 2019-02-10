@@ -11,7 +11,7 @@ namespace DomphGame_v1.Classes
 {
     /// <summary>
     /// class for saving/reading current minigame id
-    /// </summary>
+    /// </summary> 
     class SaveGame
     {
         private int id;
