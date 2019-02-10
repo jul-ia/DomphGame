@@ -22,6 +22,7 @@ namespace DomphGame_v1.Classes
             GetCurrentGame();
 
             story = new Screensaver(IdGame);
+            IdGame = 0;
             FillGameList();
         }
 
@@ -29,6 +30,23 @@ namespace DomphGame_v1.Classes
         private void FillGameList()
         {
             //todo: fill list
+
+            //test
+            AddFirstGame_test();
+        }
+
+        //test
+        public void AddFirstGame_test()
+        {
+            TestMiniGame test = new TestMiniGame();
+            gamelist.Add(test);
+        }
+        //test
+
+        public void StartGame()
+        {
+            //todo: start game?
+            gamelist[0].Restart();
         }
 
         //reading id from file
@@ -45,9 +63,10 @@ namespace DomphGame_v1.Classes
             //savegame.Save(IdGame);
         }
 
+        //show comics for certain minigame
         public void ShowStory()
         {
-            //todo: 
+            //todo: show story using story
         }
 
     }
