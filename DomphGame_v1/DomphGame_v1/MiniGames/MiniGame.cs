@@ -18,7 +18,7 @@ namespace DomphGame_v1.Classes
         public virtual void FillCanvas(System.Windows.Controls.Canvas canvas) {}
 
         //game start/restart
-        public virtual void Restart() { }
+        public virtual void Restart(System.Windows.Controls.Button button) { }
 
         //rules how to play certain game
         public virtual string GetRules()

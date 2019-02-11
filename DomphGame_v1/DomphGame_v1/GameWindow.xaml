@@ -5,20 +5,23 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DomphGame_v1"
         mc:Ignorable="d"
-        Title="GameWindow" Height="300" Width="300">
+        Title="GameWindow" Height="350" Width="350" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="40"></ColumnDefinition>
+            <ColumnDefinition Width="50"></ColumnDefinition>
             <ColumnDefinition></ColumnDefinition>
         </Grid.ColumnDefinitions>
 
         <StackPanel Grid.Column="0">
-            <Button Name="backButton" Content="Back"></Button>
-            <Button Name="restartButton" Content="Restart"></Button>
-            <Button Name="infoButton" Content="Info"></Button>
-            <Button Name="settingButton" Content="Setting"></Button>
+            <Button Name="backButton" Content="Back" Margin="3" Height="30" Click="backButton_Click"></Button>
+            <Button Name="restartButton" Content="Restart" Margin="3" Height="30" Click="restartButton_Click"></Button>
+            <Button Name="infoButton" Content="Info" Margin="3" Height="30" Click="infoButton_Click"></Button>
+            <Button Name="settingButton" Content="Setting" Margin="3" Height="30"></Button>
         </StackPanel>
+
+        <Button Name="continueButton" Grid.Column="1" Content="Continue" Width="100" Height="70" Background="DarkViolet" IsEnabled="False" Visibility="Hidden" Click="continueButton_Click">
+        </Button>
         
         <Canvas Name="canvas" Grid.Column="1">
             

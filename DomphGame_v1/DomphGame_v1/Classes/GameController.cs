@@ -11,7 +11,7 @@ namespace DomphGame_v1.Classes
     /// </summary>
     class GameController
     {
-        public int IdGame { get; }      //id of current game
+        public int IdGame { get; private set; }      //id of current game
         List<MiniGame> gamelist;        //list of all minigames
         SaveGame savegame;              //for saving/reading game id
         Screensaver story;              //game story (comics)
@@ -21,7 +21,7 @@ namespace DomphGame_v1.Classes
             savegame = new SaveGame();
             GetCurrentGame();
 
-            story = new Screensaver(IdGame);
+            //story = new Screensaver(IdGame);
             IdGame = 0;
             FillGameList();
         }
@@ -30,6 +30,7 @@ namespace DomphGame_v1.Classes
         private void FillGameList()
         {
             //todo: fill list
+            gamelist = new List<MiniGame>();
 
             //test
             AddFirstGame_test();
@@ -43,10 +44,36 @@ namespace DomphGame_v1.Classes
         }
         //test
 
-        public void StartGame()
+        public void StartGame(System.Windows.Controls.Canvas canvas, System.Windows.Controls.Button button)
         {
-            //todo: start game?
-            gamelist[0].Restart();
+            //todo: Show story: show comics
+
+            gamelist[IdGame].FillCanvas(canvas);
+            gamelist[IdGame].Restart(button);
+        }
+
+        //current minigame rules
+        public string GetRules()
+        {
+            return gamelist[IdGame].GetRules();
+        }
+
+        //check if minigame was passed
+        public bool GameCheck()
+        {
+            return gamelist[IdGame].EndCheck();
+        }
+
+        //continuing game
+        public bool Continue(System.Windows.Controls.Canvas canvas, System.Windows.Controls.Button button)
+        {
+            if (IdGame < gamelist.Count - 1)
+            {
+                IdGame++;
+                StartGame(canvas, button);
+                return true;
+            }
+            return false;
         }
 
         //reading id from file
@@ -60,7 +87,7 @@ namespace DomphGame_v1.Classes
         public void SaveCurrentGame()
         {
             //to do: save id using savegame
-            //savegame.Save(IdGame);
+            savegame.SetId(IdGame);
         }
 
         //show comics for certain minigame
