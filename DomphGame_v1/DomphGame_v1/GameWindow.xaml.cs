@@ -20,7 +20,6 @@ namespace DomphGame_v1
     public partial class GameWindow : Window
     {
         Classes.GameController controller;
-        DispatcherTimer timer;
         bool finish = false;
 
         public GameWindow()
@@ -28,12 +27,7 @@ namespace DomphGame_v1
             InitializeComponent();
 
             controller = new Classes.GameController();
-            timer = new DispatcherTimer();
-            timer.Tick += new EventHandler(timer_Tick);
-            timer.Interval = new TimeSpan(0, 0, 5);
-
             controller.StartGame(canvas, continueButton);
-            //timer.Start();
 
         }
 
@@ -67,21 +61,6 @@ namespace DomphGame_v1
             else
             {
                 MessageBox.Show("Congratulations! You have finished the game!");
-            }
-        }
-
-        //checking if game is passed
-        private void timer_Tick(object sender, EventArgs e)
-        {
-            if (controller.GameCheck())
-            {
-                finish = true;
-            }
-
-            if (finish)
-            {
-                continueButton.IsEnabled = true;
-                continueButton.Visibility = Visibility.Visible;
             }
         }
     }
