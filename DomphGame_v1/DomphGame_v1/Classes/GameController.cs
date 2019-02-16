@@ -12,10 +12,10 @@ namespace DomphGame_v1.Classes
     class GameController
     {
         public int IdGame { get; private set; }      //id of current game
-        List<MiniGame> gamelist;        //list of all minigames
+        List<MiniGames.MiniGame> gamelist;        //list of all minigames
         SaveGame savegame;              //for saving/reading game id
         Screensaver story;              //game story (comics)
-
+        
         public GameController()
         {
             savegame = new SaveGame();
@@ -30,16 +30,27 @@ namespace DomphGame_v1.Classes
         private void FillGameList()
         {
             //todo: fill list
-            gamelist = new List<MiniGame>();
+            gamelist = new List<MiniGames.MiniGame>();
 
             //test
             AddFirstGame_test();
+
+            //minigame: create image
+            CreateImageMiniGame();
+        }
+
+        private void CreateImageMiniGame()
+        {
+            int x = 4, y = 4;
+            System.Drawing.Bitmap image = new System.Drawing.Bitmap(Properties.Resources._100);
+            MiniGames.CreateImage game = new MiniGames.CreateImage(image, x, y);
+            gamelist.Add(game);
         }
 
         //test
         public void AddFirstGame_test()
         {
-            TestMiniGame test = new TestMiniGame();
+            MiniGames.TestMiniGame test = new MiniGames.TestMiniGame();
             gamelist.Add(test);
         }
         //test

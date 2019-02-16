@@ -1,10 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
-namespace DomphGame_v1.Classes
+
+namespace DomphGame_v1.MiniGames
 {
     /// <summary>
     /// Abstract class for all minigames
@@ -18,7 +15,7 @@ namespace DomphGame_v1.Classes
         public virtual void FillCanvas(System.Windows.Controls.Canvas canvas) {}
 
         //game start/restart
-        public virtual void Restart(System.Windows.Controls.Button button) { }
+        public virtual void Restart(System.Windows.Controls.Button continueButton) { }
 
         //rules how to play certain game
         public virtual string GetRules()

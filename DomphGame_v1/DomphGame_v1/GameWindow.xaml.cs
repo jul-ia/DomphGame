@@ -56,9 +56,8 @@ namespace DomphGame_v1
         //next game
         private void continueButton_Click(object sender, RoutedEventArgs e)
         {
-            if (controller.Continue(canvas, continueButton))
-            { }
-            else
+            finish = !(controller.Continue(canvas, continueButton));
+            if(finish)
             {
                 MessageBox.Show("Congratulations! You have finished the game!");
             }

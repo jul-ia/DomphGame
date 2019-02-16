@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
 
-namespace DomphGame_v1.Classes
+namespace DomphGame_v1.MiniGames
 {
     class TestMiniGame : MiniGame
     {
