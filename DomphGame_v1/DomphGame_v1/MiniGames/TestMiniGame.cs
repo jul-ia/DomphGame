@@ -20,10 +20,8 @@ namespace DomphGame_v1.MiniGames
         {
             IsPassed = false;
         }
-        public override void FillCanvas(Canvas c)
+        public override void FillCanvas()
         {
-            c.Children.Clear();
-            canvas = c;
 
             button1 = new Button();
             button2 = new Button();
@@ -77,12 +75,20 @@ namespace DomphGame_v1.MiniGames
             
         }
 
-        public override void Restart(Button con)
+        public override void Restart(Canvas c, Button con)
         {
+            c.Children.Clear();
+            canvas = c;
+
             IsPassed = false;
             continueButton = con;
             continueButton.IsEnabled = false;
             continueButton.Visibility = Visibility.Hidden;
+            canvas.Children.Add(continueButton);
+            Canvas.SetLeft(continueButton, (canvas.Width / 2) - (continueButton.Width / 2));
+            Canvas.SetTop(continueButton, (canvas.Height / 2) - (continueButton.Height / 2));
+
+            FillCanvas();
 
             button1.IsEnabled = true;
             button2.IsEnabled = false;

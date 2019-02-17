@@ -59,8 +59,8 @@ namespace DomphGame_v1.Classes
         {
             //todo: Show story: show comics
 
-            gamelist[IdGame].FillCanvas(canvas);
-            gamelist[IdGame].Restart(button);
+            //gamelist[IdGame].FillCanvas(canvas);
+            gamelist[IdGame].Restart(canvas, button);
         }
 
         //current minigame rules
@@ -102,9 +102,10 @@ namespace DomphGame_v1.Classes
         }
 
         //show comics for certain minigame
-        public void ShowStory()
+        public void ShowStory(System.Windows.Controls.Canvas c)
         {
             //todo: show story using story
+
         }
 
     }

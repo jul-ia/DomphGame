@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:DomphGame_v1"
         mc:Ignorable="d"
-        Title="GameWindow" Height="350" Width="350" WindowStartupLocation="CenterScreen">
+        Title="GameWindow" Height="350" Width="400" WindowStartupLocation="CenterScreen">
 
     <Grid>
         <Grid.ColumnDefinitions>
@@ -20,11 +20,12 @@
             <Button Name="settingButton" Content="Setting" Margin="3" Height="30"></Button>
         </StackPanel>
 
-        <Button Name="continueButton" Grid.Column="1" Content="Continue" Width="100" Height="70" Background="DarkViolet" IsEnabled="False" Visibility="Hidden" Click="continueButton_Click">
-        </Button>
+        <!--<Button Name="continueButton" Grid.Column="1" Content="Continue" Width="100" Height="70" Background="DarkViolet" IsEnabled="False" Visibility="Hidden" Click="continueButton_Click">
+        </Button>-->
         
         <Canvas Name="canvas" Grid.Column="1">
-            
+            <Button Name="continueButton" Grid.Column="1" Content="Continue" Width="100" Height="70" Background="DarkViolet" IsEnabled="False" Visibility="Hidden" Click="continueButton_Click">
+            </Button>
         </Canvas>
 
     </Grid>
