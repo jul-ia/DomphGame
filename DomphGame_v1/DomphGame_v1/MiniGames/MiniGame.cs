@@ -12,10 +12,10 @@ namespace DomphGame_v1.MiniGames
         protected bool IsPassed { get; set; }
 
         //method for filling window canvas
-        public virtual void FillCanvas(System.Windows.Controls.Canvas canvas) {}
+        public virtual void FillCanvas() {}
 
         //game start/restart
-        public virtual void Restart(System.Windows.Controls.Button continueButton) { }
+        public virtual void Restart(System.Windows.Controls.Canvas canvas, System.Windows.Controls.Button continueButton) { }
 
         //rules how to play certain game
         public virtual string GetRules()

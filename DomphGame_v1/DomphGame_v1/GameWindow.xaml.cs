@@ -27,6 +27,7 @@ namespace DomphGame_v1
             InitializeComponent();
 
             controller = new Classes.GameController();
+            controller.ShowStory(canvas);
             controller.StartGame(canvas, continueButton);
 
         }

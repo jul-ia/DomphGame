@@ -50,14 +50,11 @@ namespace DomphGame_v1.MiniGames
         }
 
         //filling canvas with cropped images
-        public override void FillCanvas(Canvas c)
+        public override void FillCanvas()
         {
-            c.Children.Clear();
-            GameCanvas = c;
-            GameCanvas.MouseDown += canvas_MouseDown;
-
-            c.Width = image.PixelWidth;
-            c.Height = image.PixelHeight;
+            //c.Children.Clear();
+            //GameCanvas = c;
+            //GameCanvas.MouseDown += canvas_MouseDown;           
 
             int cw, ch, cwCanvas, chCanvas;
             cw = (int)(image.PixelWidth / w);
@@ -104,16 +101,23 @@ namespace DomphGame_v1.MiniGames
             return true;
         }
 
-        public override void Restart(Button button)
+        public override void Restart(Canvas c, Button button)
         {
-            IsPassed = false;
+            c.Children.Clear();
+            GameCanvas = c;
+            GameCanvas.MouseDown += canvas_MouseDown;
 
-            if (GameCanvas.Children.Contains(continueButton))
-                GameCanvas.Children.Remove(continueButton);
+            IsPassed = false;
 
             continueButton = button;
             continueButton.IsEnabled = false;
             continueButton.Visibility = Visibility.Hidden;
+
+            //GameCanvas.Children.Add(continueButton);
+            //Canvas.SetLeft(continueButton, (GameCanvas.Width / 2) - (continueButton.Width / 2));
+            //Canvas.SetTop(continueButton, (GameCanvas.Height / 2) - (continueButton.Height / 2));
+
+            FillCanvas();
         }
 
         private void canvas_MouseDown(object sender, MouseButtonEventArgs e)
@@ -125,6 +129,10 @@ namespace DomphGame_v1.MiniGames
 
                 continueButton.IsEnabled = true;
                 continueButton.Visibility = Visibility.Visible;
+
+                GameCanvas.Children.Add(continueButton);
+                Canvas.SetLeft(continueButton, (GameCanvas.Width / 2) - (continueButton.Width / 2));
+                Canvas.SetTop(continueButton, (GameCanvas.Height / 2) - (continueButton.Height / 2));
             }
         }
 
