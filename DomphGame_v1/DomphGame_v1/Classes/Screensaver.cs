@@ -5,51 +5,78 @@ using System.Drawing;
 using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
+using System.Windows.Controls;
 using System.Windows.Media.Imaging;
 
 namespace DomphGame_v1.Classes
 {
     public class Screensaver
     {
-        List<BitmapImage> images;
+        List<Bitmap> images;
         int IdCurrentGame;
         CultureInfo culture;
 
-        public Screensaver(int id)
+        Canvas canvas;
+
+        public Screensaver(int id, Canvas c)
         {
-            images = new List<BitmapImage>();
+            canvas = c;
+            images = new List<Bitmap>();
             IdCurrentGame = id;
             AddImage();
         }
-        
+
         public void AddImage()
         {
             var curCulture = culture ?? CultureInfo.CurrentUICulture;
-            BitmapImage im = new BitmapImage();
+            Bitmap im;
+            int id = IdCurrentGame;
+            
             foreach (DictionaryEntry item in Properties.Resources.ResourceManager.GetResourceSet(curCulture, true, true))
             {
                 //System.Diagnostics.Debug.WriteLine(item.Key);
                 //System.Diagnostics.Debug.WriteLine(item.Value);
-                im = (BitmapImage)item.Value;
-
-                images.Add(im);
+                int imNumber;
+                int.TryParse(item.Key.ToString().Substring(1), out imNumber);
+               
+                //if (item.Key.ToString() == "_" + id.ToString() && id != IdCurrentGame+100)
+                //{
+                //    im = (Bitmap)item.Value;
+                //    images.Add(im);
+                //    id++;
+                //}
+                if(imNumber >= IdCurrentGame && imNumber <= IdCurrentGame+100)
+                {
+                        im = (Bitmap)item.Value;
+                         images.Add(im);
+                }
             }
+          
         }
 
-        public BitmapImage GetImage(int index)
+        public void GetImage()
         {
-            foreach (var item in images)
+            System.Windows.Controls.Image canvaImage = new System.Windows.Controls.Image();
+            int id = 0;
+            if (images.Count != 0)
             {
-                if (item.ToString() == index.ToString())
-                    return item;
+                canvaImage.Source = MiniGames.CreateImage.ToBitmapImage(images[id]);
+                canvas.Children.Add(canvaImage);
+                while (id < images.Count)
+                {
+                    canvaImage.Source = MiniGames.CreateImage.ToBitmapImage(images[id]);
+                    System.Diagnostics.Debug.WriteLine(images[id].ToString());
+                    Thread.Sleep(1000);
+                    id++;
+                }
             }
-            return null;
         }
 
-        public void SmthTest()
+        public int SmthTest()
         {
-           // if()
+            return images.Count;
 
         }
     }

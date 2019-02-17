@@ -7,6 +7,8 @@
         mc:Ignorable="d"
         Title="TestWindow" Height="300" Width="300">
     <Grid>
-        <Image Name="imageForMW" />
+        <Canvas Name="canvas">
+            
+        </Canvas>
     </Grid>
 </Window>
