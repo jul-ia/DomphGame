@@ -27,9 +27,7 @@ namespace DomphGame_v1
             InitializeComponent();
 
             controller = new Classes.GameController();
-            controller.ShowStory(canvas);
-            controller.StartGame(canvas, continueButton);
-
+            
         }
 
         //restart game
@@ -62,6 +60,13 @@ namespace DomphGame_v1
             {
                 MessageBox.Show("Congratulations! You have finished the game!");
             }
+        }
+
+        private void Window_Loaded(object sender, RoutedEventArgs e)
+        {
+            controller.ShowStory(canvas);
+            controller.StartGame(canvas, continueButton);
+
         }
     }
 }

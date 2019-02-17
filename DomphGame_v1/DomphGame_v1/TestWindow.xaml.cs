@@ -23,9 +23,9 @@ namespace DomphGame_v1
         public TestWindow()
         {
             InitializeComponent();
-            ss = new Classes.Screensaver(100, canvas);
-            MessageBox.Show(ss.SmthTest().ToString());
-            ss.GetImage();
+            //ss = new Classes.Screensaver(100, canvas);
+            //MessageBox.Show(ss.SmthTest().ToString());
+            //ss.GetImage();
         }
     }
 }

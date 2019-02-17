@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Controls;
+using System.Windows.Input;
 using System.Windows.Media.Imaging;
 
 namespace DomphGame_v1.Classes
@@ -20,9 +21,8 @@ namespace DomphGame_v1.Classes
 
         Canvas canvas;
 
-        public Screensaver(int id, Canvas c)
+        public Screensaver(int id)
         {
-            canvas = c;
             images = new List<Bitmap>();
             IdCurrentGame = id;
             AddImage();
@@ -56,8 +56,15 @@ namespace DomphGame_v1.Classes
           
         }
 
-        public void GetImage()
+        private void canvas_MouseDown(object sender, MouseButtonEventArgs e)
+        { 
+        }
+
+        public void GetImage(Canvas c)
         {
+            c.Children.Clear();
+            canvas = c;
+
             System.Windows.Controls.Image canvaImage = new System.Windows.Controls.Image();
             int id = 0;
             if (images.Count != 0)
@@ -66,9 +73,9 @@ namespace DomphGame_v1.Classes
                 canvas.Children.Add(canvaImage);
                 while (id < images.Count)
                 {
+                    Thread.Sleep(1000);
                     canvaImage.Source = MiniGames.CreateImage.ToBitmapImage(images[id]);
                     System.Diagnostics.Debug.WriteLine(images[id].ToString());
-                    Thread.Sleep(1000);
                     id++;
                 }
             }

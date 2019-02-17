@@ -21,7 +21,7 @@ namespace DomphGame_v1.Classes
             savegame = new SaveGame();
             GetCurrentGame();
 
-            //story = new Screensaver(IdGame);
+            story = new Screensaver(IdGame);
             IdGame = 0;
             FillGameList();
         }
@@ -105,6 +105,7 @@ namespace DomphGame_v1.Classes
         public void ShowStory(System.Windows.Controls.Canvas c)
         {
             //todo: show story using story
+            story.GetImage(c);
 
         }
 
